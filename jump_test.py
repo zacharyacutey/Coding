@@ -54,4 +54,6 @@ def disp_p(p):
   return " "
 def disp():
   clear()
-  
+  print(disp_p((0,2))+disp_p((1,2))+disp_p((2,2)))
+  print(disp_p((0,1))+disp_p((1,1))+disp_p((2,1)))
+  print(disp_p((0,0))+disp_p((1,0))+disp_p((2,0)))
