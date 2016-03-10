@@ -1,7 +1,4 @@
-A file for great collaboration:
-
-$ Zachary (I GET THE JQUERY SIGN)
-# Garrett
-@ Alex
+$ Zachary
 
 CHAT:
+$ I get the JQuery sign this time Alex!!!!
