@@ -16,6 +16,10 @@ class FSFile
   {
     return this.val;
   }
+  public string type()
+  {
+    return "FSFile";
+  }
 }
 class FSFolder
 {
@@ -38,6 +42,40 @@ class FSFolder
     this.contents[arg].NewFolder("..");
     this.contents[arg][".."]=this;
   }
+  public void DeleteObject(string arg)
+  {
+    assert(arg!=".."&&arg!=".");
+    this.conents.remove(arg);
+  }
+  public string type()
+  {
+    return "FSFolder";
+  }
 }
-  
-  
+class Walker
+{
+  private FSFolder cd;
+  private string cwd;
+  this(FSFolder cd)
+  {
+    this.cwd=".";
+    this.cd=cd;
+  }
+  public chdir(string arg)
+  {
+    this.cd=this.cd.contents[arg];
+    this.cwd=arg;
+  }
+  public DeleteObject(string arg)
+  {
+    this.cd.DeleteObject(arg);
+  }
+  public read(string arg)
+  {
+    this.cd.contents[arg].read()
+  }
+  public write(string arg,string text)
+  {
+    this.cd.contents[arg].write(text);
+  }
+}
