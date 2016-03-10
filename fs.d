@@ -1,5 +1,5 @@
 import std.stdio,std.file,std.variant;
-
+//To do, implement saving
 alias FSItem = Algebraic!(FSFile,FSFolder);
 class FSFile
 {
