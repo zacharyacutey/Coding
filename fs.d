@@ -1,5 +1,4 @@
-import std.stdio;
-import std.variant; //THIS IS WHY D IS AWESOME!
+import std.stdio,std.file,std.variant;
 
 alias FSItem = Algebraic!(FSFile,FSFolder);
 class FSFile
@@ -15,10 +14,6 @@ class FSFile
   public string read()
   {
     return this.val;
-  }
-  public string type()
-  {
-    return "FSFile";
   }
 }
 class FSFolder
@@ -47,10 +42,6 @@ class FSFolder
     assert(arg!=".."&&arg!=".");
     this.conents.remove(arg);
   }
-  public string type()
-  {
-    return "FSFolder";
-  }
 }
 class Walker
 {
@@ -61,21 +52,25 @@ class Walker
     this.cwd=".";
     this.cd=cd;
   }
-  public chdir(string arg)
+  public void chdir(string arg)
   {
     this.cd=this.cd.contents[arg];
     this.cwd=arg;
   }
-  public DeleteObject(string arg)
+  public void DeleteObject(string arg)
   {
     this.cd.DeleteObject(arg);
   }
-  public read(string arg)
+  public string read(string arg)
   {
-    this.cd.contents[arg].read()
+    return this.cd.contents[arg].read()
   }
-  public write(string arg,string text)
+  public void write(string arg,string text)
   {
     this.cd.contents[arg].write(text);
+  }
+  public string getcwd()
+  {
+    return this.cwd;
   }
 }
