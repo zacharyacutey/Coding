@@ -51,7 +51,8 @@ void boss(ref int health,int def,ref int m)
 			att=getline();
 			if(att=="b"||att=="B")
 			{
-				writeln("\nBig Slash!");
+				writeln("");
+				writeln("Big Slash!");
 				chance=gen(1,4);
 				f=0;
 				if(chance==1)
@@ -65,7 +66,8 @@ void boss(ref int health,int def,ref int m)
 			}
 			else if(att=="q"||att=="Q")
 			{
-				writeln("\nQuick Slash!");
+				writeln("");
+				writeln("Quick Slash!");
 				chance=gen(1,20);
 				f=0;
 				if(chance==1)
@@ -79,7 +81,8 @@ void boss(ref int health,int def,ref int m)
 			}
 			else if(att=="d"||att=="D")
 			{
-				writeln("\nDodge!");
+				writeln("");
+				writeln("Dodge!");
 				chance=gen(1,4);
 				f=0;
 				if(chance==1||chance==2||chance==3)
@@ -95,7 +98,8 @@ void boss(ref int health,int def,ref int m)
 			}
 			else if(att=="m"||att=="M")
 			{
-				writeln("\nUsed a medkit.");
+				writeln("");
+				writeln("Used a medkit.");
 				m--;
 				health=1000;
 				f=0;
@@ -208,7 +212,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				att=getline(); //Line 179
 				if(att=="b"||att=="B")
 				{
-					writeln("\nBig Slash!");
+					writeln("");
+					writeln("Big Slash!");
 					chance=gen(1,4);
 					f=0;
 					if(chance==1)
@@ -222,7 +227,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="q"||att=="Q")
 				{
-					writeln("\nQuick Slash!");
+					writeln("");
+					writeln("Quick Slash!");
 					chance=gen(1,20);
 					f=0;
 					if(chance==1)
@@ -237,7 +243,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="d"||att=="D")
 				{
-					writeln("\nDodge!");
+					writeln("");
+					writeln("Dodge!");
 					chance=gen(1,4);
 					f=0;
 					if(chance==1||chance==2||chance==3)
@@ -255,7 +262,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1;
 					if(m>0)
 					{
-						writeln("\nUsed a medkit.");
+						writeln("");
+						writeln("Used a medkit.");
 						m--;
 						health=1000;
 					}
@@ -365,7 +373,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				att=getline(); //320
 				if(att=="b"||att=="B")
 				{
-					writeln("\nBig Slash!");
+					writeln("");
+					writeln("Big Slash!");
 					chance=gen(1,4);
 					f=0;
 					if(chance==1)
@@ -379,7 +388,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="q"||att=="Q")
 				{
-					writeln("\nQuick Slash");
+					writeln("");
+					writeln("Quick Slash");
 					chance=gen(1,20);
 					f=0;
 					if(chance==1)
@@ -393,7 +403,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="d"||att=="D")
 				{
-					writeln("\nDodge!");
+					writeln("");
+					writeln("Dodge!");
 					chance=gen(1,4);
 					f=0;
 					if(chance==1||chance==2||chance==3)
@@ -411,7 +422,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1;
 					if(m>0)
 					{
-						writeln("\nUsed a medkit.");
+						writeln("");
+						writeln("Used a medkit.");
 						m--;
 						health=1000;
 					}
@@ -521,7 +533,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				att=getline();
 				if(att=="b"||att=="B")
 				{
-					writeln("\nBig Slash!");
+					writeln("");
+					writeln("Big Slash!");
 					chance=gen(1,4);
 					f=0;
 					if(chance==1)
@@ -535,7 +548,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="q"||att=="Q")
 				{
-					writeln("\nQuick Slash!");
+					writeln("");
+					writeln("Quick Slash!");
 					chance=gen(1,20);
 					f=0;
 					if(chance==1)
@@ -549,7 +563,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="d"||att=="D")
 				{
-					writeln("\nDodge!");
+					writeln("");
+					writeln("Dodge!");
 					chance=gen(1,4);
 					f=0;
 					if(chance==1||chance==2||chance==3)
@@ -567,7 +582,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1;
 					if(m>0)
 					{
-						writeln("\nUsed a medkit.");
+						writeln("");
+						writeln("Used a medkit.");
 						m--;
 						health=1000;
 					}
@@ -900,7 +916,8 @@ void main()
 	x=0;
 	y=0;
 	z=4;
-	writeln("\nThis is the translated version of a text adventure by Alex Trahan, translated by Zachary Taylor.");
+	writeln("");
+	writeln("This is the translated version of a text adventure by Alex Trahan, translated by Zachary Taylor.");
 	writeln("Defeat the Boss at (99,99,0) to win!");
 	writeln("Hit any key to continue.");
 	pause=getline();
@@ -918,7 +935,8 @@ void main()
 		writeln(")"); //841
 		write("Command: ");
 		com=getline();
-		writeln("\n");
+		writeln("");
+		writeln("");
 		writeln("---------------------------------------------------------------------------");
 		command(com,x,y,z,num,health);
 		writeln("---------------------------------------------------------------------------");
