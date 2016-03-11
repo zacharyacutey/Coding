@@ -22,6 +22,23 @@ string getline()
 {
 	return readln()[0..$-1];
 }
+void info(int health,int def,int m,int whealth)
+{
+	writeln("-------Combat-------");
+	writeln("B-Big slash: 15-50 damage, 25% chance of missing.");
+	writeln("D-Dodge: 75% chance of dodging all damage.");
+	writeln("M-Medkit: Restores you to full health.");
+	writeln("--------------------");
+	write("Health: ");
+	writeln(health);
+	write("def: ");
+	writeln(def);
+	write("Medkits: ");
+	writeln(m);
+	write("Enemy Health: ");
+	writeln(whealth);
+	write("Command: ");
+}
 void boss(ref int health,int def,ref int m)
 {
 	int g,c=0,chance,damage,chance=0,t=0,whealth=1000,f=0,stun=0;
@@ -30,20 +47,7 @@ void boss(ref int health,int def,ref int m)
 		string att;
 		if(stun==0)
 		{
-			writeln("-------Combat-------");
-			writeln("B-Big slash: 15-50 damage, 25% chance of missing.");
-			writeln("D-Dodge: 75% chance of dodging all damage.");
-			writeln("M-Medkit: Restores you to full health.");
-			writeln("--------------------");
-			write("Health: ");
-			writeln(health);
-			write("def: ");
-			writeln(def);
-			write("Medkits: ");
-			writeln(m);
-			write("Enemy Health: ");
-			writeln(whealth);
-			write("Command: ");
+			info(health,def,m,whealth);
 			att=getline();
 			if(att=="b"||att=="B")
 			{
@@ -105,20 +109,7 @@ void boss(ref int health,int def,ref int m)
 		}
 		else
 		{
-			writeln("-------Combat-------");
-			writeln("B-Big slash: 15-50 damage, 25% chance of missing.");
-			writeln("D-Dodge: 75% chance of dodging all damage.");
-			writeln("M-Medkit: Restores you to full health.");
-			writeln("--------------------");
-			write("Health: ");
-			writeln(health);
-			write("def: ");
-			writeln(def);
-			write("Medkits: ");
-			writeln(m);
-			write("Enemy Health: ");
-			writeln(whealth);
-			write("Command: ");
+			info(health,def,m,whealth);
 			att=getline();
 			writeln("###############");
 			writeln("You are stunned!");
@@ -211,20 +202,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 		while(c==0)
 		{
 			string att;
-			writeln("-------Combat-------");
-			writeln("B-Big slash: 15-50 damage, 25% chance of missing.");
-			writeln("D-Dodge: 75% chance of dodging all damage.");
-			writeln("M-Medkit: Restores you to full health.");
-			writeln("--------------------");
-			write("Health: ");
-			writeln(health);
-			write("def: ");
-			writeln(def);
-			write("Medkits: ");
-			writeln(m);
-			write("Enemy Health: ");
-			writeln(whealth);
-			write("Command: ");
+			info(health,def,m,whealth);
 			if(t==0)
 			{
 				att=getline(); //Line 179
