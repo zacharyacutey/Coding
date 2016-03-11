@@ -711,6 +711,7 @@ void north(ref int x,ref int y,ref int z)
 {
 	if(x!=99)
 	{
+		x++;
 		writeln("You trek north");
 	}
 	else
