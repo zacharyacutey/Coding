@@ -272,6 +272,25 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 						writeln("Failed."); //Line 214
 					}
 				}
+				else if(att=="m"||att=="M")
+				{
+					f=1;
+					if(m>0)
+					{
+						writeln("\nUsed a medkit.");
+						m--;
+						health=1000;
+					}
+					else
+					{
+						writeln("You have no medkits!");
+					}
+				}
+				else
+				{
+					writeln("Not a valid command!");
+					f=1; //Line 231
+				}
 			}
 		}
 	}
