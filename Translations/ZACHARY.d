@@ -1,4 +1,4 @@
-import std.stdio,std.random;
+import std.stdio,std.random,std.conv;
 int rand()
 {
 	return uniform(0,32767);
@@ -41,7 +41,7 @@ void info(int health,int def,int m,int whealth)
 }
 void boss(ref int health,int def,ref int m)
 {
-	int g,c=0,chance,damage,chance=0,t=0,whealth=1000,f=0,stun=0;
+	int g,c=0,chance,damage,charge=0,t=0,whealth=1000,f=0,stun=0;
 	while(health>0 && whealth>0)
 	{
 		string att;
@@ -130,7 +130,7 @@ void boss(ref int health,int def,ref int m)
 				}
 				health-=damage;
 				chance=gen(1,3);
-				if(channce==2)
+				if(chance==2)
 				{
 					charge++;
 				}
@@ -213,7 +213,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=0;
 					if(chance==1)
 					{
-						wrwiteln("Dodged!");
+						writeln("Dodged!");
 					}
 					else
 					{
@@ -382,7 +382,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					writeln("\nQuick Slash");
 					chance=gen(1,20);
 					f=0;
-					if(chance=="1")
+					if(chance==1)
 					{
 						writeln("Dodged!");
 					}
@@ -518,7 +518,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			info(health,def,m,whealth);
 			if(t==0)
 			{
-				att=getline(att="b"||att="B");
+				att=getline();
 				if(att=="b"||att=="B")
 				{
 					writeln("\nBig Slash!");
@@ -526,7 +526,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=0;
 					if(chance==1)
 					{
-						writeln("Dodged!")
+						writeln("Dodged!");
 					}
 					else
 					{
@@ -567,7 +567,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1;
 					if(m>0)
 					{
-						writeln("\nUsed a medkit.")
+						writeln("\nUsed a medkit.");
 						m--;
 						health=1000;
 					}
@@ -652,3 +652,274 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 	}
 }
 //At line 584!!!!! Heck Yeah!
+
+int count(string count,char test)
+{
+	int x=0,output=0;
+	while(x<count.length)
+	{
+		if(count[x]==test)
+		{
+			output++;
+		}
+		x++;
+	}
+	return output;
+}
+
+void up(ref int x,ref int y,ref int z,int h)
+{
+	if(h==10)
+	{
+		if(z!=4)
+		{
+			z++;
+			writeln("You climb up the stairs, but a doorway closes behind you... You are locked out!");
+		}
+		else
+		{
+			writeln("You jump as high as you can, but sadly you cannot fly.");
+		}
+	}
+	else
+	{
+		writeln("You can't go up from here");
+	}
+}
+
+void down(ref int x,ref int y,ref int z,int h)
+{
+	if(h==10)
+	{
+		if(z!=0)
+		{
+			z--;
+			writeln("You start to climb down, then the ground collapses underneath you!");
+		}
+		else
+		{
+			writeln("There are no tunnels leading down from here...");
+		}
+	}
+	else
+	{
+		writeln("You can't go down frrom here");
+	}
+}
+
+void north(ref int x,ref int y,ref int z)
+{
+	if(x!=99)
+	{
+		writeln("You trek north");
+	}
+	else
+	{
+		writeln("Something tells you that you can't leave the area...");
+	}
+}
+void south(ref int x,ref int y,ref int z)
+{
+	if(x!=0)
+	{
+		writeln("You trek south");
+		x--;
+	}
+	else
+	{
+		writeln("Something tells you that you can't leave the area...");
+	}
+}
+
+void east(ref int x,ref int y,ref int z)
+{
+	if(y!=99)
+	{
+		writeln("You trek east");
+		y++;
+	}
+	else
+	{
+		writeln("Something tells you that you can't leave the area...");
+	}
+}
+
+void west(ref int x,ref int y,ref int z)
+{
+	if(y!=0)
+	{
+		writeln("You trek west");
+		y--;
+	}
+	else
+	{
+		writeln("Something tells you that you can't leave the area...");
+	}
+}
+
+void command(string input,ref int x,ref int y,ref int z,ref int h,ref int health)
+{
+	if(input=="n"||input=="N")
+	{
+		north(x,y,z);
+	}
+	else if(input=="s"||input=="S")
+	{
+		south(x,y,z);
+	}
+	else if(input=="e"||input=="E")
+	{
+		east(x,y,z);
+	}
+	else if(input=="w"||input=="W")
+	{
+		west(x,y,z);
+	}
+	else if(input=="h"||input=="H")
+	{
+		writeln("Commands:");
+		writeln("E-east");
+		writeln("W-west");
+		writeln("N-north");
+		writeln("S-South");
+		writeln("D-down");
+		writeln("U-up");
+	}
+	else if(input=="d"||input=="D")
+	{
+		down(x,y,z,h);
+	}
+	else if(input=="116728")
+	{
+		write("X: ");
+		x=to!int(getline());
+		write("Y: ");
+		y=to!int(getline());
+		write("Z: ");
+		z=to!int(readln());
+		write("Health: ");
+		health=to!int(getline());
+	}
+	else
+	{
+		writeln("That is not a valid command, type H for help.");
+	}
+}
+
+int tile(int z,ref int num,ref int health,ref int def,ref int m)
+{
+	if(z==4)
+	{
+		if(num==1||num==3||num==12)
+		{
+			writeln("[Forest]");
+			return 1;
+		}
+		if(num==4||num==6)
+		{
+			writeln("[Swamp]");
+			return 4;
+		}
+		if(num==7||num==8||num==9)
+		{
+			writeln("[Desert]");
+			return 7;
+		}
+		if(num==10)
+		{
+			writeln("[Cave Entrance]");
+			return 10;
+		}
+		if(num==2)
+		{
+			combat(z,num,health,def,m);
+			return 12;
+		}
+		if(num==5||num==15)
+		{
+			writeln("[Ruins]");
+			return 15;
+		}
+	}
+	if(num==1||num==3||num==12)
+	{
+		writeln("[Cavern]");
+		return 1;
+	}
+	if(num==4||num==5||num==6)
+	{
+		writeln("[Tunnel]");
+		return 4;
+	}
+	if(num==7||num==8||num==8)
+	{
+		writeln("[Cave]");
+		return 7;
+	}
+	if(num==10)
+	{
+		writeln("[Stairway]");
+		return 10;
+	}
+	if(num==2)
+	{
+		combat(z,num,health,def,m);
+		return 12;
+	}
+	if(num==11)
+	{
+		writeln("A feeling of hopelessness overwhelms you...");
+		boss(health,def,m);
+	}
+	assert(0);
+}
+void main()
+{
+	string com,pause;
+	int x=0,y=0,z=0,death_=0,def=0,num,m=0;
+	int[100][100][5] map;
+	writeln("Generating Map...");
+	while(x<100)
+	{
+		while(y<100)
+		{
+			while(z<5)
+			{
+				num=gen(1,10);
+				map[z][y][x]=num;
+				z++;
+			}
+			y++;
+			z=0;
+		}
+		x++;
+		y=0;
+	}
+	map[0][99][99]=11;
+	x=0;
+	y=0;
+	z=4;
+	writeln("\nThis is the translated version of a text adventure by Alex Trahan, translated by Zachary Taylor.");
+	writeln("Defeat the Boss at (99,99,0) to win!");
+	writeln("Hit any key to continue.");
+	pause=getline();
+	int health=1000,l=0;
+	while(true)
+	{
+		num=map[x][y][z];
+		map[x][y][z]=tile(z,num,health,def,m);
+		write("Coordinates: (");
+		write(x);
+		write(", ");
+		write(y);
+		write(", ");
+		write(z);
+		writeln(")"); //841
+		write("Command: ");
+		com=getline();
+		writeln("\n");
+		writeln("---------------------------------------------------------------------------");
+		command(com,x,y,z,num,health);
+		writeln("---------------------------------------------------------------------------");
+	}
+}
