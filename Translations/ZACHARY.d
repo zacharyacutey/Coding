@@ -887,7 +887,7 @@ void main()
 			while(z<5)
 			{
 				num=gen(1,10);
-				map[z][y][x]=num;
+				map[x][y][z]=num;
 				z++;
 			}
 			y++;
@@ -896,7 +896,7 @@ void main()
 		x++;
 		y=0;
 	}
-	map[0][99][99]=11;
+	map[99][99][0]=11;
 	x=0;
 	y=0;
 	z=4;
