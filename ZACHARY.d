@@ -292,6 +292,72 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1; //Line 231
 				}
 			}
+			writeln("");
+			damage=0;
+			if(charge==0)
+			{
+				writeln(monster ~ " Attacks!");
+				damage=gen(5,25)-def;
+				if(def>=damage&&f==0)
+				{
+					writeln("Your armor blocked the damage!");
+					damage=0;
+				}
+				health-=damage;
+				chance=gen(1,4);
+				if(chance==1)
+				{
+					charge++;
+				}
+				else
+				{
+					charge=0;
+				}
+			}
+			else if(charge==1)
+			{
+				writeln("The "~monster~" is charging up for a heavy attack");
+				charge++;
+			}
+			else
+			{
+				writeln(monster~" Charges!");
+				damage=gen(10,25)-def;
+				if(def>=damage&&f==0)
+				{
+					writeln("Your armor blocked the damage!");
+					damage=0;
+				}
+				health-=damage;
+				charge=0;
+			}
+			g=0;
+			write("You took ");
+			write(damage);
+			writeln(" damage!");
+			if(health<1)
+			{
+				death();
+			}
+			if(whealth<1)
+			{
+				writeln("#############");
+				writeln(monster ~ " Slain!");
+				writeln("#############");
+				chance=gen(1,3);
+				if(chance==1)
+				{
+					def++;
+					writeln("You loot some armor off of thhe corpse... Defense +1");
+				}
+				else
+				{
+					m++;
+					writeln("You loot a medkit off of the corpse...");
+				}
+				t=1;
+				c=1; //294
+			}
 		}
 	}
 }
