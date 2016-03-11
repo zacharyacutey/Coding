@@ -1,15 +1,21 @@
 import std.stdio,std.random,std.conv;
-int rand()
+/*int rand()
 {
-	return uniform(0,32767);
+	return uniform(0,32768);
 }
+*/
 string vowel(string arg)
 {
 	return (arg[0]=='A' || arg[0]=='E' || arg[0] == 'I' || arg[0]=='O' || arg[0]=='U' ) ? "n" : "";
 }
+/*
 int gen(int x,int y)
 {
 	return (rand() % y + x);
+}*/
+int gen(int x,int y)
+{
+	return uniform(x,y + 1);
 }
 void death()
 {
