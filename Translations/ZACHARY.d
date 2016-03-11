@@ -182,7 +182,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 {
 	int j=gen(1,3);
 	string monster;
-	if(z==1)
+	if(z==4)
 	{
 		if(j==3)
 		{
@@ -878,7 +878,7 @@ void main()
 {
 	string com,pause;
 	int x=0,y=0,z=0,death_=0,def=0,num,m=0;
-	int[100][100][5] map;
+	int map[100][100][5];
 	writeln("Generating Map...");
 	while(x<100)
 	{
