@@ -338,4 +338,94 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			}
 		}
 	}
+	if(z==2||z==3)
+	{
+		if(j==3)
+		{
+			monster="Giant Spider";
+		}
+		else if(j==2)
+		{
+			monster="Giant Scorpion";
+		}
+		else
+		{
+			monster="Insane Bandit";
+		}
+		int g,c,chance,damage,charge=0,t=0,f=0,whealth=gen(200,300);
+		writeln("Something approaches...");
+		writeln("A" ~ vowel(monster) ~ " " ~ monster ~ " jumps out!");
+		c=0;
+		while(c==0)
+		{
+			string att;
+			info(health,def,m,whealth);
+			if(t==0)
+			{
+				att=getline(); //320
+				if(att=="b"||att=="B")
+				{
+					writeln("\nBig Slash!");
+					chance=gen(1,4);
+					f=0;
+					if(chance==1)
+					{
+						writeln("Dodged!");
+					}
+					else
+					{
+						whealth-=gen(15,50);
+					}
+				}
+				else if(att=="q"||att=="Q")
+				{
+					writeln("\nQuick Slash");
+					chance=gen(1,20);
+					f=0;
+					if(chance=="1")
+					{
+						writeln("Dodged!");
+					}
+					else
+					{
+						whealth-=gen(5,15);
+					}
+				}
+				else if(att=="d"||att=="D")
+				{
+					writeln("\nDodge!");
+					chance=gen(1,4);
+					f=0;
+					if(chance==1||chance==2||chance==3)
+					{
+						f=1;
+						writeln("Success");
+					}
+					else
+					{
+						writeln("Failed.");
+					}
+				}
+				else if(att=="m"||att=="M")
+				{
+					f=1;
+					if(m>0)
+					{
+						writeln("\nUsed a medkit.");
+						m--;
+						health=1000;
+					}
+					else
+					{
+						writeln("You have no medkits!");
+					}
+				}
+				else
+				{
+					writeln("Not a valid command!");
+					f=1; //371
+				}
+			}
+		}			
+	}
 }
