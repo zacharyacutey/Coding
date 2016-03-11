@@ -426,6 +426,229 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1; //371
 				}
 			}
-		}			
+			writeln();
+			damage=0;
+			if(charge==0)
+			{
+				writeln(monster~" Attacks!");
+				damage=gen(7,25)-def;
+				if(def>=damage&&f==0)
+				{
+					writeln("Your armor blocked the damage!");
+					damage=0;
+				}
+				health-=damage;
+				chance=gen(1,4);
+				if(chance==1)
+				{
+					charge++;
+				}
+				else
+				{
+					charge=0;
+				}
+			}
+			else if(charge==1)
+			{
+				writeln("The "~monster~" is charging up for a heavy attack!");
+				charge++;
+			}
+			else
+			{
+				writeln(monster ~ " Charges!");
+				damage=gen(15,135)-def;
+				if(def>=damage&&f==0)
+				{
+					writeln("Your armor blocked the damage");
+					damage=0;
+				}
+				health-=damage;
+				charge=0;
+			}
+			g=0;
+			write("You took ");
+			write(damage);
+			writeln(" damage!");
+			if(health<1)
+			{
+				death();
+			}
+			if(whealth<1)
+			{
+				writeln("#############");
+				writeln(monster ~ " Slain!");
+				writeln("#############"); //421
+				chance=gen(1,3);
+				if(chance==1)
+				{
+					def++;
+					writeln("You loot some armor off of the corpse...");
+				}
+				else if(chance==2||chance==3)
+				{
+					m++;
+					writeln("You loot a medkit off of the corpse...");
+				}
+				t=1;
+				c=1; //435
+			}
+		}
+	}
+	if(z==1||z==0)
+	{
+		if(j==3)
+		{
+			monster="Earth Elemental";
+		}
+		else if(j==2)
+		{
+			monster="Undead Bandit";
+		}
+		else
+		{
+			monster="Giant Mole";
+		}
+		int g,c,chance,damage,charge=0,t=0,f=0,whealth=gen(200,300);
+		writeln("Something approaches...");
+		writeln("A"~vowel(monster)~" "~monster~" jumps out~");
+		c=0;
+		while(c==0)
+		{
+			string att;
+			info(health,def,m,whealth);
+			if(t==0)
+			{
+				att=getline(att="b"||att="B");
+				if(att=="b"||att=="B")
+				{
+					writeln("\nBig Slash!");
+					chance=gen(1,4);
+					f=0;
+					if(chance==1)
+					{
+						writeln("Dodged!")
+					}
+					else
+					{
+						whealth-=gen(15,50);
+					}
+				}
+				else if(att=="q"||att=="Q")
+				{
+					writeln("\nQuick Slash!");
+					chance=gen(1,20);
+					f=0;
+					if(chance==1)
+					{
+						writeln("Dodged!");
+					}
+					else
+					{
+						whealth-=gen(5,15);
+					}
+				}
+				else if(att=="d"||att=="D")
+				{
+					writeln("\nDodge!");
+					chance=gen(1,4);
+					f=0;
+					if(chance==1||chance==2||chance==3)
+					{
+						f=1;
+						writeln("Success");
+					}
+					else
+					{
+						writeln("Failed.");
+					}
+				}
+				else if(att=="m"||att=="M")
+				{
+					f=1;
+					if(m>0)
+					{
+						writeln("\nUsed a medkit.")
+						m--;
+						health=1000;
+					}
+					else
+					{
+						writeln("You have no medkits!");
+					}
+				}
+				else
+				{
+					writeln("Not a valid command!");
+					f=1;
+				}
+			}
+			writeln("");
+			damage=0;
+			if(charge==0)
+			{
+				writeln(monster ~ " Attacks!");
+				damage=gen(7,25)-def;
+				if(def>=damage&&f==0)
+				{
+					writeln("Your armor blocked the damage!");
+					damage=0;
+				}
+				health-=damage;
+				chance=gen(1,4);
+				if(chance==1)
+				{
+					charge++;
+				}
+				else
+				{
+					charge=0;
+				}
+			}
+			else if(charge==1)
+			{
+				writeln("The "~monster~" is charging up for a heavy attack!");
+				charge++;
+			}
+			else
+			{
+				writeln(monster ~ " Charges!");
+				damage=gen(15,135)-def;
+				if(def>=damage&&f==0)
+				{
+					writeln("Your armor blocked the damage!");
+					damage=0;
+				}
+				health-=damage;
+				charge=0;
+			}
+			g=0;
+			write("You took ");
+			write(damage);
+			writeln(" damage!");
+			if(health<1)
+			{
+				death();
+			}
+			if(whealth<1)
+			{
+				writeln("#############");
+				writeln(monster ~ " Slain!");
+				writeln("#############");
+				chance=gen(1,3);
+				if(chance==1)
+				{
+					def++;
+					writeln("You loot some armor off of the corpse... Defence +1");
+				}
+				if(chance==2||chance==3)
+				{
+					m++;
+					writeln("You loot a medkit off of the corpse...");
+				}
+				t=1;
+				c=1;
+			}
+		}
 	}
 }
+//At line 584!!!!! Heck Yeah!
