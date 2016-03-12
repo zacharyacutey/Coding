@@ -9,7 +9,7 @@ int gen(int x,int y)
 }
 void death()
 {
-	write("You have died!");
+	"You have died!".write;
 	while(true)
 	{
 	}
@@ -25,15 +25,15 @@ void info(int health,int def,int m,int whealth)
 	writeln("D-Dodge: 75% chance of dodging all damage.");
 	writeln("M-Medkit: Restores you to full health.");
 	writeln("--------------------");
-	write("Health: ");
+	"Health: ".write;
 	writeln(health);
-	write("def: ");
+	"def: ".write;
 	writeln(def);
-	write("Medkits: ");
+	"Medkits: ".write;
 	writeln(m);
-	write("Enemy Health: ");
+	"Enemy Health: ".write;
 	writeln(whealth);
-	write("Command: ");
+	"Command: ".write;
 }
 void boss(ref int health,int def,ref int m)
 {
@@ -147,14 +147,14 @@ void boss(ref int health,int def,ref int m)
 			}
 		}
 		g=0;
-		write("You took ");
-		write(damage);
+		"You took ".write;
+		damage.write;
 		writeln(" damage!");
 		f=0;
 		if(health<1)
 			death;
 		while(whealth<1)
-			write("#Congrats! You won!");
+			"#Congrats! You won!".write;
 	}
 }
 //Line 152, combat function
@@ -272,8 +272,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				charge=0;
 			}
 			g=0;
-			write("You took ");
-			write(damage);
+			"You took ".write;
+			damage.write;
 			writeln(" damage!");
 			if(health<1)
 				death;
@@ -408,8 +408,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				charge=0;
 			}
 			g=0;
-			write("You took ");
-			write(damage);
+			"You took ".write;
+			damage.write;
 			writeln(" damage!");
 			if(health<1)
 				death;
@@ -544,8 +544,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				charge=0;
 			}
 			g=0;
-			write("You took ");
-			write(damage);
+			"You took ".write;
+			damage.write;
 			writeln(" damage!");
 			if(health<1)
 				death;
@@ -684,13 +684,13 @@ void command(string input,ref int x,ref int y,ref int z,ref int h,ref int health
 		down(x,y,z,h);
 	else if(input=="116728")
 	{
-		write("X: ");
+		"X: ".write;
 		x=to!int(getline);
-		write("Y: ");
+		"Y: ".write;
 		y=to!int(getline);
-		write("Z: ");
+		"Z: ".write;
 		z=to!int(getline);
-		write("Health: ");
+		"Health: ".write;
 		health=to!int(getline);
 	}
 	else
@@ -801,14 +801,14 @@ void main()
 	{
 		num=map[x][y][z];
 		map[x][y][z]=tile(z,num,health,def,m);
-		write("Coordinates: (");
-		write(x);
-		write(", ");
-		write(y);
-		write(", ");
-		write(z);
+		"Coordinates: (".write;
+		x.write;
+		", ".write;
+		y.write;
+		", ".write;
+		z.write;
 		writeln(")"); //841
-		write("Command: ");
+		"Command: ".write;
 		com=getline;
 		writeln;
 		writeln;
