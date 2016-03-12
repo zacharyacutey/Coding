@@ -16,7 +16,7 @@ void death()
 }
 string getline()
 {
-	return readln()[0..$-1];
+	return readln[0..$-1];
 }
 void info(int health,int def,int m,int whealth)
 {
@@ -44,10 +44,10 @@ void boss(ref int health,int def,ref int m)
 		if(stun==0)
 		{
 			info(health,def,m,whealth);
-			att=getline();
+			att=getline;
 			if(att=="b"||att=="B")
 			{
-				writeln();
+				writeln;
 				writeln("Big Slash!");
 				chance=gen(1,4);
 				f=0;
@@ -58,7 +58,7 @@ void boss(ref int health,int def,ref int m)
 			}
 			else if(att=="q"||att=="Q")
 			{
-				writeln();
+				writeln;
 				writeln("Quick Slash!");
 				chance=gen(1,20);
 				f=0;
@@ -69,7 +69,7 @@ void boss(ref int health,int def,ref int m)
 			}
 			else if(att=="d"||att=="D")
 			{
-				writeln();
+				writeln;
 				writeln("Dodge!");
 				chance=gen(1,4);
 				f=0;
@@ -84,7 +84,7 @@ void boss(ref int health,int def,ref int m)
 			}
 			else if(att=="m"||att=="M")
 			{
-				writeln();
+				writeln;
 				writeln("Used a medkit.");
 				m--;
 				health=1000;
@@ -95,12 +95,12 @@ void boss(ref int health,int def,ref int m)
 				writeln("Not a valid command!");
 				f=1;
 			}
-			writeln();
+			writeln;
 		}
 		else
 		{
 			info(health,def,m,whealth);
-			att=getline();
+			att=getline;
 			writeln("###############");
 			writeln("You are stunned!");
 			writeln("###############"); //Line 90
@@ -152,7 +152,7 @@ void boss(ref int health,int def,ref int m)
 		writeln(" damage!");
 		f=0;
 		if(health<1)
-			death();
+			death;
 		while(whealth<1)
 			write("#Congrats! You won!");
 	}
@@ -179,10 +179,10 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			info(health,def,m,whealth);
 			if(t==0)
 			{
-				att=getline(); //Line 179
+				att=getline; //Line 179
 				if(att=="b"||att=="B")
 				{
-					writeln();
+					writeln;
 					writeln("Big Slash!");
 					chance=gen(1,4);
 					f=0;
@@ -193,7 +193,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="q"||att=="Q")
 				{
-					writeln();
+					writeln;
 					writeln("Quick Slash!");
 					chance=gen(1,20);
 					f=0;
@@ -205,7 +205,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="d"||att=="D")
 				{
-					writeln();
+					writeln;
 					writeln("Dodge!");
 					chance=gen(1,4);
 					f=0;
@@ -222,7 +222,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1;
 					if(m>0)
 					{
-						writeln();
+						writeln;
 						writeln("Used a medkit.");
 						m--;
 						health=1000;
@@ -236,7 +236,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1; //Line 231
 				}
 			}
-			writeln();
+			writeln;
 			damage=0;
 			if(charge==0)
 			{
@@ -276,7 +276,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			write(damage);
 			writeln(" damage!");
 			if(health<1)
-				death();
+				death;
 			if(whealth<1)
 			{
 				writeln("#############");
@@ -286,7 +286,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				if(chance==1)
 				{
 					def++;
-					writeln("You loot some armor off of thhe corpse... Defense +1");
+					writeln("You loot some armor off of thhe corpse... Defence +1");
 				}
 				else
 				{
@@ -316,10 +316,10 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			info(health,def,m,whealth);
 			if(t==0)
 			{
-				att=getline(); //320
+				att=getline; //320
 				if(att=="b"||att=="B")
 				{
-					writeln();
+					writeln;
 					writeln("Big Slash!");
 					chance=gen(1,4);
 					f=0;
@@ -330,7 +330,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="q"||att=="Q")
 				{
-					writeln();
+					writeln;
 					writeln("Quick Slash");
 					chance=gen(1,20);
 					f=0;
@@ -341,7 +341,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="d"||att=="D")
 				{
-					writeln();
+					writeln;
 					writeln("Dodge!");
 					chance=gen(1,4);
 					f=0;
@@ -358,7 +358,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1;
 					if(m>0)
 					{
-						writeln();
+						writeln;
 						writeln("Used a medkit.");
 						m--;
 						health=1000;
@@ -372,7 +372,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1; //371
 				}
 			}
-			writeln();
+			writeln;
 			damage=0;
 			if(charge==0)
 			{
@@ -412,7 +412,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			write(damage);
 			writeln(" damage!");
 			if(health<1)
-				death();
+				death;
 			if(whealth<1)
 			{
 				writeln("#############");
@@ -452,10 +452,10 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			info(health,def,m,whealth);
 			if(t==0)
 			{
-				att=getline();
+				att=getline;
 				if(att=="b"||att=="B")
 				{
-					writeln();
+					writeln;
 					writeln("Big Slash!");
 					chance=gen(1,4);
 					f=0;
@@ -466,7 +466,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="q"||att=="Q")
 				{
-					writeln();
+					writeln;
 					writeln("Quick Slash!");
 					chance=gen(1,20);
 					f=0;
@@ -477,7 +477,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="d"||att=="D")
 				{
-					writeln();
+					writeln;
 					writeln("Dodge!");
 					chance=gen(1,4);
 					f=0;
@@ -494,7 +494,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1;
 					if(m>0)
 					{
-						writeln();
+						writeln;
 						writeln("Used a medkit.");
 						m--;
 						health=1000;
@@ -508,7 +508,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1;
 				}
 			}
-			writeln();
+			writeln;
 			damage=0;
 			if(charge==0)
 			{
@@ -548,7 +548,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			write(damage);
 			writeln(" damage!");
 			if(health<1)
-				death();
+				death;
 			if(whealth<1)
 			{
 				writeln("#############");
@@ -685,13 +685,13 @@ void command(string input,ref int x,ref int y,ref int z,ref int h,ref int health
 	else if(input=="116728")
 	{
 		write("X: ");
-		x=to!int(getline());
+		x=to!int(getline);
 		write("Y: ");
-		y=to!int(getline());
+		y=to!int(getline);
 		write("Z: ");
-		z=to!int(readln());
+		z=to!int(getline);
 		write("Health: ");
-		health=to!int(getline());
+		health=to!int(getline);
 	}
 	else
 		writeln("That is not a valid command, type H for help.");
@@ -791,11 +791,11 @@ void main()
 	x=0;
 	y=0;
 	z=4;
-	writeln();
+	writeln;
 	writeln("This is the translated version of a text adventure by Alex Trahan, translated by Zachary Taylor.");
 	writeln("Defeat the Boss at (99,99,0) to win!");
 	writeln("Hit any key to continue.");
-	pause=getline();
+	pause=getline;
 	int health=1000,l;
 	while(true)
 	{
@@ -809,9 +809,9 @@ void main()
 		write(z);
 		writeln(")"); //841
 		write("Command: ");
-		com=getline();
-		writeln();
-		writeln();
+		com=getline;
+		writeln;
+		writeln;
 		writeln("---------------------------------------------------------------------------");
 		command(com,x,y,z,num,health);
 		writeln("---------------------------------------------------------------------------");
