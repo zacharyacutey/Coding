@@ -444,7 +444,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			monster="Giant Mole";
 		int g,c,chance,damage,charge,t,f,whealth=gen(200,300);
 		writeln("Something approaches...");
-		writeln("A"~vowel(monster)~" "~monster~" jumps out~");
+		writeln("A"~vowel(monster)~" "~monster~" jumps out!");
 		c=0;
 		while(c==0)
 		{
