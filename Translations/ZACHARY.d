@@ -172,7 +172,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			monster="Giant Snake";
 		int g,c,chance,damage,charge,whealth=gen(100,200),t,f; //Line 169
 		writeln("Something approaches");
-		writeln("A" ~ vowel(monster) ~ " " ~ monster ~ "jumps out!"); //Line 170
+		writeln("A" ~ vowel(monster) ~ " " ~ monster ~ " jumps out!"); //Line 170
 		while(c==0)
 		{
 			string att;
