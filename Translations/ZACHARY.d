@@ -37,7 +37,7 @@ void info(int health,int def,int m,int whealth)
 }
 void boss(ref int health,int def,ref int m)
 {
-	int g,c=0,chance,damage,charge=0,t=0,whealth=1000,f=0,stun=0;
+	int g,c,chance,damage,charge,t,whealth=1000,f,stun;
 	while(health>0 && whealth>0)
 	{
 		string att;
@@ -47,33 +47,29 @@ void boss(ref int health,int def,ref int m)
 			att=getline();
 			if(att=="b"||att=="B")
 			{
-				writeln("");
+				writeln();
 				writeln("Big Slash!");
 				chance=gen(1,4);
 				f=0;
 				if(chance==1)
 					writeln("Dodged!");
 				else
-				{
 					whealth-=gen(15,50);
-				}
 			}
 			else if(att=="q"||att=="Q")
 			{
-				writeln("");
+				writeln();
 				writeln("Quick Slash!");
 				chance=gen(1,20);
 				f=0;
 				if(chance==1)
 					writeln("Dodged!");
 				else
-				{
 					whealth-=gen(5,15);
-				}
 			}
 			else if(att=="d"||att=="D")
 			{
-				writeln("");
+				writeln();
 				writeln("Dodge!");
 				chance=gen(1,4);
 				f=0;
@@ -88,7 +84,7 @@ void boss(ref int health,int def,ref int m)
 			}
 			else if(att=="m"||att=="M")
 			{
-				writeln("");
+				writeln();
 				writeln("Used a medkit.");
 				m--;
 				health=1000;
@@ -176,7 +172,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			monster="Wyvern";
 		else
 			monster="Giant Snake";
-		int g,c=0,chance,damage,charge=0,whealth=gen(100,200),t=0,f=0; //Line 169
+		int g,c,chance,damage,charge,whealth=gen(100,200),t,f; //Line 169
 		writeln("Something approaches");
 		writeln("A" ~ vowel(monster) ~ " " ~ monster ~ "jumps out!"); //Line 170
 		while(c==0)
@@ -188,7 +184,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				att=getline(); //Line 179
 				if(att=="b"||att=="B")
 				{
-					writeln("");
+					writeln();
 					writeln("Big Slash!");
 					chance=gen(1,4);
 					f=0;
@@ -199,7 +195,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="q"||att=="Q")
 				{
-					writeln("");
+					writeln();
 					writeln("Quick Slash!");
 					chance=gen(1,20);
 					f=0;
@@ -211,7 +207,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="d"||att=="D")
 				{
-					writeln("");
+					writeln();
 					writeln("Dodge!");
 					chance=gen(1,4);
 					f=0;
@@ -228,7 +224,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1;
 					if(m>0)
 					{
-						writeln("");
+						writeln();
 						writeln("Used a medkit.");
 						m--;
 						health=1000;
@@ -242,7 +238,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1; //Line 231
 				}
 			}
-			writeln("");
+			writeln();
 			damage=0;
 			if(charge==0)
 			{
@@ -312,7 +308,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			monster="Giant Scorpion";
 		else
 			monster="Insane Bandit";
-		int g,c,chance,damage,charge=0,t=0,f=0,whealth=gen(200,300);
+		int g,c,chance,damage,charge,t,f,whealth=gen(200,300);
 		writeln("Something approaches...");
 		writeln("A" ~ vowel(monster) ~ " " ~ monster ~ " jumps out!");
 		c=0;
@@ -325,7 +321,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				att=getline(); //320
 				if(att=="b"||att=="B")
 				{
-					writeln("");
+					writeln();
 					writeln("Big Slash!");
 					chance=gen(1,4);
 					f=0;
@@ -336,7 +332,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="q"||att=="Q")
 				{
-					writeln("");
+					writeln();
 					writeln("Quick Slash");
 					chance=gen(1,20);
 					f=0;
@@ -347,7 +343,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="d"||att=="D")
 				{
-					writeln("");
+					writeln();
 					writeln("Dodge!");
 					chance=gen(1,4);
 					f=0;
@@ -364,7 +360,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1;
 					if(m>0)
 					{
-						writeln("");
+						writeln();
 						writeln("Used a medkit.");
 						m--;
 						health=1000;
@@ -448,7 +444,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			monster="Undead Bandit";
 		else
 			monster="Giant Mole";
-		int g,c,chance,damage,charge=0,t=0,f=0,whealth=gen(200,300);
+		int g,c,chance,damage,charge,t,f,whealth=gen(200,300);
 		writeln("Something approaches...");
 		writeln("A"~vowel(monster)~" "~monster~" jumps out~");
 		c=0;
@@ -461,7 +457,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				att=getline();
 				if(att=="b"||att=="B")
 				{
-					writeln("");
+					writeln();
 					writeln("Big Slash!");
 					chance=gen(1,4);
 					f=0;
@@ -472,7 +468,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="q"||att=="Q")
 				{
-					writeln("");
+					writeln();
 					writeln("Quick Slash!");
 					chance=gen(1,20);
 					f=0;
@@ -483,7 +479,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				}
 				else if(att=="d"||att=="D")
 				{
-					writeln("");
+					writeln();
 					writeln("Dodge!");
 					chance=gen(1,4);
 					f=0;
@@ -500,7 +496,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1;
 					if(m>0)
 					{
-						writeln("");
+						writeln();
 						writeln("Used a medkit.");
 						m--;
 						health=1000;
@@ -514,7 +510,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					f=1;
 				}
 			}
-			writeln("");
+			writeln();
 			damage=0;
 			if(charge==0)
 			{
@@ -581,7 +577,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 
 int count(string count,char test)
 {
-	int x=0,output=0;
+	int x,output;
 	while(x<count.length)
 	{
 		if(count[x]==test)
@@ -773,7 +769,7 @@ int tile(int z,ref int num,ref int health,ref int def,ref int m)
 void main()
 {
 	string com,pause;
-	int x=0,y=0,z=0,death_=0,def=0,num,m=0;
+	int x,y,z,death_,def,num,m;
 	int map[100][100][5];
 	writeln("Generating Map...");
 	while(x<100)
@@ -796,12 +792,12 @@ void main()
 	x=0;
 	y=0;
 	z=4;
-	writeln("");
+	writeln();
 	writeln("This is the translated version of a text adventure by Alex Trahan, translated by Zachary Taylor.");
 	writeln("Defeat the Boss at (99,99,0) to win!");
 	writeln("Hit any key to continue.");
 	pause=getline();
-	int health=1000,l=0;
+	int health=1000,l;
 	while(true)
 	{
 		num=map[x][y][z];
@@ -815,8 +811,8 @@ void main()
 		writeln(")"); //841
 		write("Command: ");
 		com=getline();
-		writeln("");
-		writeln("");
+		writeln();
+		writeln();
 		writeln("---------------------------------------------------------------------------");
 		command(com,x,y,z,num,health);
 		writeln("---------------------------------------------------------------------------");
