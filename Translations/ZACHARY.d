@@ -92,7 +92,7 @@ void boss(ref int health,int def,ref int m)
 			}
 			else
 			{
-				writeln("not a valid command!");
+				writeln("Not a valid command!");
 				f=1;
 			}
 			writeln();
@@ -761,7 +761,8 @@ int tile(int z,ref int num,ref int health,ref int def,ref int m)
 	}
 	if(num==11)
 	{
-		writeln("A feeling of hopelessness overwhelms you..."); //To add the rest of this
+		writeln("A feeling of hopelessness overwhelms you...");
+		writeln("-----BOSS FIGHT-----");
 		boss(health,def,m);
 	}
 	assert(0);
