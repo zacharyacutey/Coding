@@ -744,7 +744,7 @@ int tile(int z,ref int num,ref int health,ref int def,ref int m)
 		writeln("[Tunnel]");
 		return 4;
 	}
-	if(num==7||num==8||num==8)
+	if(num==7||num==8||num==9)
 	{
 		writeln("[Cave]");
 		return 7;
