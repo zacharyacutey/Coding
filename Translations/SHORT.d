@@ -20,19 +20,19 @@ string getline()
 }
 void info(int health,int def,int m,int whealth)
 {
-	writeln("-------Combat-------");
-	writeln("B-Big slash: 15-50 damage, 25% chance of missing.");
-	writeln("D-Dodge: 75% chance of dodging all damage.");
-	writeln("M-Medkit: Restores you to full health.");
-	writeln("--------------------");
+	"-------Combat-------".writeln;
+	"B-Big slash: 15-50 damage, 25% chance of missing.".writeln;
+	"D-Dodge: 75% chance of dodging all damage.".writeln;
+	"M-Medkit: Restores you to full health.".writeln;
+	"--------------------".writeln;
 	"Health: ".write;
-	writeln(health);
+	health.writeln;
 	"def: ".write;
-	writeln(def);
+	def.writeln;
 	"Medkits: ".write;
-	writeln(m);
+	m.writeln;
 	"Enemy Health: ".write;
-	writeln(whealth);
+	whealth.writeln;
 	"Command: ".write;
 }
 void boss(ref int health,int def,ref int m)
@@ -48,51 +48,51 @@ void boss(ref int health,int def,ref int m)
 			if(att=="b"||att=="B")
 			{
 				writeln;
-				writeln("Big Slash!");
+				"Big Slash!".writeln;
 				chance=gen(1,4);
 				f=0;
 				if(chance==1)
-					writeln("Dodged!");
+					"Dodged!".writeln;
 				else
 					whealth-=gen(15,50);
 			}
 			else if(att=="q"||att=="Q")
 			{
 				writeln;
-				writeln("Quick Slash!");
+				"Quick Slash!".writeln;
 				chance=gen(1,20);
 				f=0;
 				if(chance==1)
-					writeln("Dodged!");
+					"Dodged!".writeln;
 				else
 					whealth-=gen(5,15);
 			}
 			else if(att=="d"||att=="D")
 			{
 				writeln;
-				writeln("Dodge!");
+				"Dodge!".writeln;
 				chance=gen(1,4);
 				f=0;
 				if(chance==1||chance==2||chance==3)
 				{
 					f=1;
-					writeln("Success");
+					"Success".writeln;
 					charge++;
 				}
 				else
-					writeln("Failed.");
+					"Failed.".writeln;
 			}
 			else if(att=="m"||att=="M")
 			{
 				writeln;
-				writeln("Used a medkit.");
+				"Used a medkit.".writeln;
 				m--;
 				health=1000;
 				f=0;
 			}
 			else
 			{
-				writeln("Not a valid command!");
+				"Not a valid command!".writeln;
 				f=1;
 			}
 			writeln;
@@ -101,9 +101,9 @@ void boss(ref int health,int def,ref int m)
 		{
 			info(health,def,m,whealth);
 			att=getline;
-			writeln("###############");
-			writeln("You are stunned!");
-			writeln("###############"); //Line 90
+			"###############".writeln;
+			"You are stunned!".writeln;
+			"###############".writeln; //Line 90
 		}
 		stun=0;
 		damage=0;
@@ -111,11 +111,11 @@ void boss(ref int health,int def,ref int m)
 		{
 			if(charge==0)
 			{
-				writeln("The Destroyer Attacks!"); //97
+				"The Destroyer Attacks!".writeln; //97
 				damage=gen(20,100)-def;
 				if(def>=damage)
 				{
-					if(f==1) writeln("Your armor blocked the damage!");
+					if(f==1) "Your armor blocked the damage!".writeln;
 					damage=0; //useless, LOL
 				}
 				health-=damage;
@@ -125,18 +125,18 @@ void boss(ref int health,int def,ref int m)
 			}
 			else if(charge==1)
 			{
-				writeln("The Destroyer is charging up for a heavy attack!");
+				"The Destroyer is charging up for a heavy attack!".writeln;
 				charge++;
 			}
 			else
 			{
 				stun=1;
-				writeln("The Destroyer Charges!");
-				writeln("You have been stunned!");
+				"The Destroyer Charges!".writeln;
+				"You have been stunned!".writeln;
 				damage=gen(25,200)-def;
 				if(def>=damage)
 				{
-					if (f==1) writeln("Your armor blocked the damage!");
+					if (f==1) "Your armor blocked the damage!".writeln;
 					damage=0;
 				}
 				else
@@ -149,7 +149,7 @@ void boss(ref int health,int def,ref int m)
 		g=0;
 		"You took ".write;
 		damage.write;
-		writeln(" damage!");
+		" damage!".writeln;
 		f=0;
 		if(health<1)
 			death;
@@ -171,8 +171,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 		else
 			monster="Giant Snake";
 		int g,c,chance,damage,charge,whealth=gen(100,200),t,f; //Line 169
-		writeln("Something approaches");
-		writeln("A" ~ vowel(monster) ~ " " ~ monster ~ "jumps out!"); //Line 170
+		"Something approaches".writeln;
+		writeln("A" ~ monster.vowel ~ " " ~ monster ~ "jumps out!"); //Line 170
 		while(c==0)
 		{
 			string att;
@@ -183,22 +183,22 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				if(att=="b"||att=="B")
 				{
 					writeln;
-					writeln("Big Slash!");
+					"Big Slash!".writeln;
 					chance=gen(1,4);
 					f=0;
 					if(chance==1)
-						writeln("Dodged!");
+						"Dodged!".writeln;
 					else
 						whealth-=gen(15,50);
 				}
 				else if(att=="q"||att=="Q")
 				{
 					writeln;
-					writeln("Quick Slash!");
+					"Quick Slash!".writeln;
 					chance=gen(1,20);
 					f=0;
 					if(chance==1)
-						writeln("Dodged!");
+						"Dodged!".writeln;
 					else
 						whealth-=gen(5,15); //Line 201
 					
@@ -206,16 +206,16 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				else if(att=="d"||att=="D")
 				{
 					writeln;
-					writeln("Dodge!");
+					"Dodge!".writeln;
 					chance=gen(1,4);
 					f=0;
 					if(chance==1||chance==2||chance==3)
 					{
 						f=1;
-						writeln("Success");
+						"Success".writeln;
 					}
 					else
-						writeln("Failed."); //Line 214
+						"Failed.".writeln; //Line 214
 				}
 				else if(att=="m"||att=="M")
 				{
@@ -223,16 +223,16 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					if(m>0)
 					{
 						writeln;
-						writeln("Used a medkit.");
+						"Used a medkit.".writeln;
 						m--;
 						health=1000;
 					}
 					else
-						writeln("You have no medkits!");
+						"You have no medkits!".writeln;
 				}
 				else
 				{
-					writeln("Not a valid command!");
+					"Not a valid command!".writeln;
 					f=1; //Line 231
 				}
 			}
@@ -244,7 +244,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				damage=gen(5,25)-def;
 				if(def>=damage&&f==0)
 				{
-					writeln("Your armor blocked the damage!");
+					"Your armor blocked the damage!".writeln;
 					damage=0;
 				}
 				health-=damage;
@@ -265,7 +265,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				damage=gen(10,25)-def;
 				if(def>=damage&&f==0)
 				{
-					writeln("Your armor blocked the damage!");
+					"Your armor blocked the damage!".writeln;
 					damage=0;
 				}
 				health-=damage;
@@ -274,24 +274,24 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			g=0;
 			"You took ".write;
 			damage.write;
-			writeln(" damage!");
+			" damage!".writeln;
 			if(health<1)
 				death;
 			if(whealth<1)
 			{
-				writeln("#############");
+				"#############".writeln;
 				writeln(monster ~ " Slain!");
-				writeln("#############");
+				"#############".writeln;
 				chance=gen(1,3);
 				if(chance==1)
 				{
 					def++;
-					writeln("You loot some armor off of thhe corpse... Defense +1");
+					"You loot some armor off of thhe corpse... Defense +1".writeln;
 				}
 				else
 				{
 					m++;
-					writeln("You loot a medkit off of the corpse...");
+					"You loot a medkit off of the corpse...".writeln;
 				}
 				t=1;
 				c=1; //294
@@ -307,8 +307,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 		else
 			monster="Insane Bandit";
 		int g,c,chance,damage,charge,t,f,whealth=gen(200,300);
-		writeln("Something approaches...");
-		writeln("A" ~ vowel(monster) ~ " " ~ monster ~ " jumps out!");
+		"Something approaches...".writeln;
+		writeln("A" ~ monster.vowel ~ " " ~ monster ~ " jumps out!");
 		c=0;
 		while(c==0)
 		{
@@ -320,38 +320,38 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				if(att=="b"||att=="B")
 				{
 					writeln;
-					writeln("Big Slash!");
+					"Big Slash!".writeln;
 					chance=gen(1,4);
 					f=0;
 					if(chance==1)
-						writeln("Dodged!");
+						"Dodged!".writeln;
 					else
 						whealth-=gen(15,50);
 				}
 				else if(att=="q"||att=="Q")
 				{
 					writeln;
-					writeln("Quick Slash");
+					"Quick Slash".writeln;
 					chance=gen(1,20);
 					f=0;
 					if(chance==1)
-						writeln("Dodged!");
+						"Dodged!".writeln;
 					else
 						whealth-=gen(5,15);
 				}
 				else if(att=="d"||att=="D")
 				{
 					writeln;
-					writeln("Dodge!");
+					"Dodge!".writeln;
 					chance=gen(1,4);
 					f=0;
 					if(chance==1||chance==2||chance==3)
 					{
 						f=1;
-						writeln("Success");
+						"Success".writeln;
 					}
 					else
-						writeln("Failed.");
+						"Failed.".writeln;
 				}
 				else if(att=="m"||att=="M")
 				{
@@ -359,16 +359,16 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					if(m>0)
 					{
 						writeln;
-						writeln("Used a medkit.");
+						"Used a medkit.".writeln;
 						m--;
 						health=1000;
 					}
 					else
-						writeln("You have no medkits!");
+						"You have no medkits!".writeln;
 				}
 				else
 				{
-					writeln("Not a valid command!");
+					"Not a valid command!".writeln;
 					f=1; //371
 				}
 			}
@@ -380,7 +380,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				damage=gen(7,25)-def;
 				if(def>=damage&&f==0)
 				{
-					writeln("Your armor blocked the damage!");
+					"Your armor blocked the damage!".writeln;
 					damage=0;
 				}
 				health-=damage;
@@ -401,7 +401,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				damage=gen(15,135)-def;
 				if(def>=damage&&f==0)
 				{
-					writeln("Your armor blocked the damage");
+					"Your armor blocked the damage".writeln;
 					damage=0;
 				}
 				health-=damage;
@@ -410,24 +410,24 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			g=0;
 			"You took ".write;
 			damage.write;
-			writeln(" damage!");
+			" damage!".writeln;
 			if(health<1)
 				death;
 			if(whealth<1)
 			{
-				writeln("#############");
+				"#############".writeln;
 				writeln(monster ~ " Slain!");
-				writeln("#############"); //421
+				"#############".writeln; //421
 				chance=gen(1,3);
 				if(chance==1)
 				{
 					def++;
-					writeln("You loot some armor off of the corpse...");
+					"You loot some armor off of the corpse...".writeln;
 				}
 				else if(chance==2||chance==3)
 				{
 					m++;
-					writeln("You loot a medkit off of the corpse...");
+					"You loot a medkit off of the corpse...".writeln;
 				}
 				t=1;
 				c=1; //435
@@ -443,8 +443,8 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 		else
 			monster="Giant Mole";
 		int g,c,chance,damage,charge,t,f,whealth=gen(200,300);
-		writeln("Something approaches...");
-		writeln("A"~vowel(monster)~" "~monster~" jumps out~");
+		"Something approaches...".writeln;
+		writeln("A"~monster.vowel~" "~monster~" jumps out~");
 		c=0;
 		while(c==0)
 		{
@@ -456,38 +456,38 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				if(att=="b"||att=="B")
 				{
 					writeln;
-					writeln("Big Slash!");
+					"Big Slash!".writeln;
 					chance=gen(1,4);
 					f=0;
 					if(chance==1)
-						writeln("Dodged!");
+						"Dodged!".writeln;
 					else
 						whealth-=gen(15,50);
 				}
 				else if(att=="q"||att=="Q")
 				{
 					writeln;
-					writeln("Quick Slash!");
+					"Quick Slash!".writeln;
 					chance=gen(1,20);
 					f=0;
 					if(chance==1)
-						writeln("Dodged!");
+						"Dodged!".writeln;
 					else
 						whealth-=gen(5,15);
 				}
 				else if(att=="d"||att=="D")
 				{
 					writeln;
-					writeln("Dodge!");
+					"Dodge!".writeln;
 					chance=gen(1,4);
 					f=0;
 					if(chance==1||chance==2||chance==3)
 					{
 						f=1;
-						writeln("Success");
+						"Success".writeln;
 					}
 					else
-						writeln("Failed.");
+						"Failed.".writeln;
 				}
 				else if(att=="m"||att=="M")
 				{
@@ -495,16 +495,16 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					if(m>0)
 					{
 						writeln;
-						writeln("Used a medkit.");
+						"Used a medkit.".writeln;
 						m--;
 						health=1000;
 					}
 					else
-						writeln("You have no medkits!");
+						"You have no medkits!".writeln;
 				}
 				else
 				{
-					writeln("Not a valid command!");
+					"Not a valid command!".writeln;
 					f=1;
 				}
 			}
@@ -516,7 +516,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				damage=gen(7,25)-def;
 				if(def>=damage&&f==0)
 				{
-					writeln("Your armor blocked the damage!");
+					"Your armor blocked the damage!".writeln;
 					damage=0;
 				}
 				health-=damage;
@@ -537,7 +537,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				damage=gen(15,135)-def;
 				if(def>=damage&&f==0)
 				{
-					writeln("Your armor blocked the damage!");
+					"Your armor blocked the damage!".writeln;
 					damage=0;
 				}
 				health-=damage;
@@ -546,24 +546,24 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			g=0;
 			"You took ".write;
 			damage.write;
-			writeln(" damage!");
+			" damage!".writeln;
 			if(health<1)
 				death;
 			if(whealth<1)
 			{
-				writeln("#############");
+				"#############".writeln;
 				writeln(monster ~ " Slain!");
-				writeln("#############");
+				"#############".writeln;
 				chance=gen(1,3);
 				if(chance==1)
 				{
 					def++;
-					writeln("You loot some armor off of the corpse... Defence +1");
+					"You loot some armor off of the corpse... Defence +1".writeln;
 				}
 				if(chance==2||chance==3)
 				{
 					m++;
-					writeln("You loot a medkit off of the corpse...");
+					"You loot a medkit off of the corpse...".writeln;
 				}
 				t=1;
 				c=1;
@@ -592,13 +592,13 @@ void up(ref int x,ref int y,ref int z,int h)
 		if(z!=4)
 		{
 			z++;
-			writeln("You climb up the stairs, but a doorway closes behind you... You are locked out!");
+			"You climb up the stairs, but a doorway closes behind you... You are locked out!".writeln;
 		}
 		else
-			writeln("You jump as high as you can, but sadly you cannot fly.");
+			"You jump as high as you can, but sadly you cannot fly.".writeln;
 	}
 	else
-		writeln("You can't go up from here");
+		"You can't go up from here".writeln;
 }
 
 void down(ref int x,ref int y,ref int z,int h)
@@ -608,13 +608,13 @@ void down(ref int x,ref int y,ref int z,int h)
 		if(z!=0)
 		{
 			z--;
-			writeln("You start to climb down, then the ground collapses underneath you!");
+			"You start to climb down, then the ground collapses underneath you!".writeln;
 		}
 		else
-			writeln("There are no tunnels leading down from here...");
+			"There are no tunnels leading down from here...".writeln;
 	}
 	else
-		writeln("You can't go down frrom here");
+		"You can't go down frrom here".writeln;
 }
 
 void north(ref int x,ref int y,ref int z)
@@ -622,42 +622,42 @@ void north(ref int x,ref int y,ref int z)
 	if(x!=99)
 	{
 		x++;
-		writeln("You trek north");
+		"You trek north".writeln;
 	}
 	else
-		writeln("Something tells you that you can't leave the area...");
+		"Something tells you that you can't leave the area...".writeln;
 }
 void south(ref int x,ref int y,ref int z)
 {
 	if(x!=0)
 	{
-		writeln("You trek south");
+		"You trek south".writeln;
 		x--;
 	}
 	else
-		writeln("Something tells you that you can't leave the area...");
+		"Something tells you that you can't leave the area...".writeln;
 }
 
 void east(ref int x,ref int y,ref int z)
 {
 	if(y!=99)
 	{
-		writeln("You trek east");
+		"You trek east".writeln;
 		y++;
 	}
 	else
-		writeln("Something tells you that you can't leave the area...");
+		"Something tells you that you can't leave the area...".writeln;
 }
 
 void west(ref int x,ref int y,ref int z)
 {
 	if(y!=0)
 	{
-		writeln("You trek west");
+		"You trek west".writeln;
 		y--;
 	}
 	else
-		writeln("Something tells you that you can't leave the area...");
+		"Something tells you that you can't leave the area...".writeln;
 }
 
 void command(string input,ref int x,ref int y,ref int z,ref int h,ref int health)
@@ -672,13 +672,13 @@ void command(string input,ref int x,ref int y,ref int z,ref int h,ref int health
 		west(x,y,z);
 	else if(input=="h"||input=="H")
 	{
-		writeln("Commands:");
-		writeln("E-east");
-		writeln("W-west");
-		writeln("N-north");
-		writeln("S-South");
-		writeln("D-down");
-		writeln("U-up");
+		"Commands:".writeln;
+		"E-east".writeln;
+		"W-west".writeln;
+		"N-north".writeln;
+		"S-South".writeln;
+		"D-down".writeln;
+		"U-up".writeln;
 	}
 	else if(input=="d"||input=="D")
 		down(x,y,z,h);
@@ -694,7 +694,7 @@ void command(string input,ref int x,ref int y,ref int z,ref int h,ref int health
 		health=to!int(getline);
 	}
 	else
-		writeln("That is not a valid command, type H for help.");
+		"That is not a valid command, type H for help.".writeln;
 }
 
 int tile(int z,ref int num,ref int health,ref int def,ref int m)
@@ -703,22 +703,22 @@ int tile(int z,ref int num,ref int health,ref int def,ref int m)
 	{
 		if(num==1||num==3||num==12)
 		{
-			writeln("[Forest]");
+			"[Forest]".writeln;
 			return 1;
 		}
 		if(num==4||num==6)
 		{
-			writeln("[Swamp]");
+			"[Swamp]".writeln;
 			return 4;
 		}
 		if(num==7||num==8||num==9)
 		{
-			writeln("[Desert]");
+			"[Desert]".writeln;
 			return 7;
 		}
 		if(num==10)
 		{
-			writeln("[Cave Entrance]");
+			"[Cave Entrance]".writeln;
 			return 10;
 		}
 		if(num==2)
@@ -728,28 +728,28 @@ int tile(int z,ref int num,ref int health,ref int def,ref int m)
 		}
 		if(num==5||num==15)
 		{
-			writeln("[Ruins]");
+			"[Ruins]".writeln;
 			return 15;
 		}
 	}
 	if(num==1||num==3||num==12)
 	{
-		writeln("[Cavern]");
+		"[Cavern]".writeln;
 		return 1;
 	}
 	if(num==4||num==5||num==6)
 	{
-		writeln("[Tunnel]");
+		"[Tunnel]".writeln;
 		return 4;
 	}
 	if(num==7||num==8||num==8)
 	{
-		writeln("[Cave]");
+		"[Cave]".writeln;
 		return 7;
 	}
 	if(num==10)
 	{
-		writeln("[Stairway]");
+		"[Stairway]".writeln;
 		return 10;
 	}
 	if(num==2)
@@ -759,8 +759,8 @@ int tile(int z,ref int num,ref int health,ref int def,ref int m)
 	}
 	if(num==11)
 	{
-		writeln("A feeling of hopelessness overwhelms you...");
-		writeln("-----BOSS FIGHT-----");
+		"A feeling of hopelessness overwhelms you...".writeln;
+		"-----BOSS FIGHT-----".writeln;
 		boss(health,def,m);
 	}
 	assert(0);
@@ -770,7 +770,7 @@ void main()
 	string com,pause;
 	int x,y,z,death_,def,num,m;
 	int map[100][100][5];
-	writeln("Generating Map...");
+	"Generating Map...".writeln;
 	while(x<100)
 	{
 		while(y<100)
@@ -792,9 +792,9 @@ void main()
 	y=0;
 	z=4;
 	writeln;
-	writeln("This is the translated version of a text adventure by Alex Trahan, translated by Zachary Taylor.");
-	writeln("Defeat the Boss at (99,99,0) to win!");
-	writeln("Hit any key to continue.");
+	"This is the translated version of a text adventure by Alex Trahan, translated by Zachary Taylor.".writeln;
+	"Defeat the Boss at (99,99,0) to win!".writeln;
+	"Hit any key to continue.".writeln;
 	pause=getline;
 	int health=1000,l;
 	while(true)
@@ -807,13 +807,13 @@ void main()
 		y.write;
 		", ".write;
 		z.write;
-		writeln(")"); //841
+		")".writeln; //841
 		"Command: ".write;
 		com=getline;
 		writeln;
 		writeln;
-		writeln("---------------------------------------------------------------------------");
+		"---------------------------------------------------------------------------".writeln;
 		command(com,x,y,z,num,health);
-		writeln("---------------------------------------------------------------------------");
+		"---------------------------------------------------------------------------".writeln;
 	}
 }
