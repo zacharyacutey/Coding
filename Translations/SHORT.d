@@ -682,6 +682,8 @@ void command(string input,ref int x,ref int y,ref int z,ref int h,ref int health
 	}
 	else if(input=="d"||input=="D")
 		down(x,y,z,h);
+	else if(input=="u"||input=="U")
+		up(x,y,z,h);
 	else if(input=="116728")
 	{
 		"X: ".write;
