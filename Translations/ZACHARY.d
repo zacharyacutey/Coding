@@ -1,18 +1,8 @@
 import std.stdio,std.random,std.conv;
-/*int rand()
-{
-	return uniform(0,32768);
-}
-*/
 string vowel(string arg)
 {
 	return (arg[0]=='A' || arg[0]=='E' || arg[0] == 'I' || arg[0]=='O' || arg[0]=='U' ) ? "n" : "";
 }
-/*
-int gen(int x,int y)
-{
-	return (rand() % y + x);
-}*/
 int gen(int x,int y)
 {
 	return uniform(x,y + 1);
@@ -62,9 +52,7 @@ void boss(ref int health,int def,ref int m)
 				chance=gen(1,4);
 				f=0;
 				if(chance==1)
-				{
 					writeln("Dodged!");
-				}
 				else
 				{
 					whealth-=gen(15,50);
@@ -77,9 +65,7 @@ void boss(ref int health,int def,ref int m)
 				chance=gen(1,20);
 				f=0;
 				if(chance==1)
-				{
 					writeln("Dodged!");
-				}
 				else
 				{
 					whealth-=gen(5,15);
@@ -98,9 +84,7 @@ void boss(ref int health,int def,ref int m)
 					charge++;
 				}
 				else
-				{
 					writeln("Failed.");
-				}
 			}
 			else if(att=="m"||att=="M")
 			{
@@ -141,13 +125,9 @@ void boss(ref int health,int def,ref int m)
 				health-=damage;
 				chance=gen(1,3);
 				if(chance==2)
-				{
 					charge++;
-				}
 				else
-				{
 					charge=0;
-				}
 			}
 			else if(charge==1)
 			{
@@ -178,13 +158,9 @@ void boss(ref int health,int def,ref int m)
 		writeln(" damage!");
 		f=0;
 		if(health<1)
-		{
 			death();
-		}
 		while(whealth<1)
-		{
 			write("#Congrats! You won!");
-		}
 	}
 }
 //Line 152, combat function
@@ -195,17 +171,11 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 	if(z==4)
 	{
 		if(j==3)
-		{
 			monster="Bandit";
-		}
 		else if(j==2)
-		{
 			monster="Wyvern";
-		}
 		else
-		{
 			monster="Giant Snake";
-		}
 		int g,c=0,chance,damage,charge=0,whealth=gen(100,200),t=0,f=0; //Line 169
 		writeln("Something approaches");
 		writeln("A" ~ vowel(monster) ~ " " ~ monster ~ "jumps out!"); //Line 170
@@ -223,13 +193,9 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					chance=gen(1,4);
 					f=0;
 					if(chance==1)
-					{
 						writeln("Dodged!");
-					}
 					else
-					{
 						whealth-=gen(15,50);
-					}
 				}
 				else if(att=="q"||att=="Q")
 				{
@@ -238,13 +204,9 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					chance=gen(1,20);
 					f=0;
 					if(chance==1)
-					{
 						writeln("Dodged!");
-					}
 					else
-					{
 						whealth-=gen(5,15); //Line 201
-					}
 					
 				}
 				else if(att=="d"||att=="D")
@@ -259,9 +221,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 						writeln("Success");
 					}
 					else
-					{
 						writeln("Failed."); //Line 214
-					}
 				}
 				else if(att=="m"||att=="M")
 				{
@@ -274,9 +234,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 						health=1000;
 					}
 					else
-					{
 						writeln("You have no medkits!");
-					}
 				}
 				else
 				{
@@ -298,13 +256,9 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				health-=damage;
 				chance=gen(1,4);
 				if(chance==1)
-				{
 					charge++;
-				}
 				else
-				{
 					charge=0;
-				}
 			}
 			else if(charge==1)
 			{
@@ -328,9 +282,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			write(damage);
 			writeln(" damage!");
 			if(health<1)
-			{
 				death();
-			}
 			if(whealth<1)
 			{
 				writeln("#############");
@@ -355,17 +307,11 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 	if(z==2||z==3)
 	{
 		if(j==3)
-		{
 			monster="Giant Spider";
-		}
 		else if(j==2)
-		{
 			monster="Giant Scorpion";
-		}
 		else
-		{
 			monster="Insane Bandit";
-		}
 		int g,c,chance,damage,charge=0,t=0,f=0,whealth=gen(200,300);
 		writeln("Something approaches...");
 		writeln("A" ~ vowel(monster) ~ " " ~ monster ~ " jumps out!");
@@ -384,13 +330,9 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					chance=gen(1,4);
 					f=0;
 					if(chance==1)
-					{
 						writeln("Dodged!");
-					}
 					else
-					{
 						whealth-=gen(15,50);
-					}
 				}
 				else if(att=="q"||att=="Q")
 				{
@@ -399,13 +341,9 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					chance=gen(1,20);
 					f=0;
 					if(chance==1)
-					{
 						writeln("Dodged!");
-					}
 					else
-					{
 						whealth-=gen(5,15);
-					}
 				}
 				else if(att=="d"||att=="D")
 				{
@@ -419,9 +357,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 						writeln("Success");
 					}
 					else
-					{
 						writeln("Failed.");
-					}
 				}
 				else if(att=="m"||att=="M")
 				{
@@ -434,9 +370,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 						health=1000;
 					}
 					else
-					{
 						writeln("You have no medkits!");
-					}
 				}
 				else
 				{
@@ -458,13 +392,9 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				health-=damage;
 				chance=gen(1,4);
 				if(chance==1)
-				{
 					charge++;
-				}
 				else
-				{
 					charge=0;
-				}
 			}
 			else if(charge==1)
 			{
@@ -488,9 +418,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			write(damage);
 			writeln(" damage!");
 			if(health<1)
-			{
 				death();
-			}
 			if(whealth<1)
 			{
 				writeln("#############");
@@ -515,17 +443,11 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 	if(z==1||z==0)
 	{
 		if(j==3)
-		{
 			monster="Earth Elemental";
-		}
 		else if(j==2)
-		{
 			monster="Undead Bandit";
-		}
 		else
-		{
 			monster="Giant Mole";
-		}
 		int g,c,chance,damage,charge=0,t=0,f=0,whealth=gen(200,300);
 		writeln("Something approaches...");
 		writeln("A"~vowel(monster)~" "~monster~" jumps out~");
@@ -544,13 +466,9 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					chance=gen(1,4);
 					f=0;
 					if(chance==1)
-					{
 						writeln("Dodged!");
-					}
 					else
-					{
 						whealth-=gen(15,50);
-					}
 				}
 				else if(att=="q"||att=="Q")
 				{
@@ -559,13 +477,9 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 					chance=gen(1,20);
 					f=0;
 					if(chance==1)
-					{
 						writeln("Dodged!");
-					}
 					else
-					{
 						whealth-=gen(5,15);
-					}
 				}
 				else if(att=="d"||att=="D")
 				{
@@ -579,9 +493,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 						writeln("Success");
 					}
 					else
-					{
 						writeln("Failed.");
-					}
 				}
 				else if(att=="m"||att=="M")
 				{
@@ -594,9 +506,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 						health=1000;
 					}
 					else
-					{
 						writeln("You have no medkits!");
-					}
 				}
 				else
 				{
@@ -618,13 +528,9 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 				health-=damage;
 				chance=gen(1,4);
 				if(chance==1)
-				{
 					charge++;
-				}
 				else
-				{
 					charge=0;
-				}
 			}
 			else if(charge==1)
 			{
@@ -648,9 +554,7 @@ void combat(int z,ref int num,ref int health,ref int def,ref int m)
 			write(damage);
 			writeln(" damage!");
 			if(health<1)
-			{
 				death();
-			}
 			if(whealth<1)
 			{
 				writeln("#############");
@@ -681,9 +585,7 @@ int count(string count,char test)
 	while(x<count.length)
 	{
 		if(count[x]==test)
-		{
 			output++;
-		}
 		x++;
 	}
 	return output;
@@ -699,14 +601,10 @@ void up(ref int x,ref int y,ref int z,int h)
 			writeln("You climb up the stairs, but a doorway closes behind you... You are locked out!");
 		}
 		else
-		{
 			writeln("You jump as high as you can, but sadly you cannot fly.");
-		}
 	}
 	else
-	{
 		writeln("You can't go up from here");
-	}
 }
 
 void down(ref int x,ref int y,ref int z,int h)
@@ -719,14 +617,10 @@ void down(ref int x,ref int y,ref int z,int h)
 			writeln("You start to climb down, then the ground collapses underneath you!");
 		}
 		else
-		{
 			writeln("There are no tunnels leading down from here...");
-		}
 	}
 	else
-	{
 		writeln("You can't go down frrom here");
-	}
 }
 
 void north(ref int x,ref int y,ref int z)
@@ -737,9 +631,7 @@ void north(ref int x,ref int y,ref int z)
 		writeln("You trek north");
 	}
 	else
-	{
 		writeln("Something tells you that you can't leave the area...");
-	}
 }
 void south(ref int x,ref int y,ref int z)
 {
@@ -749,9 +641,7 @@ void south(ref int x,ref int y,ref int z)
 		x--;
 	}
 	else
-	{
 		writeln("Something tells you that you can't leave the area...");
-	}
 }
 
 void east(ref int x,ref int y,ref int z)
@@ -762,9 +652,7 @@ void east(ref int x,ref int y,ref int z)
 		y++;
 	}
 	else
-	{
 		writeln("Something tells you that you can't leave the area...");
-	}
 }
 
 void west(ref int x,ref int y,ref int z)
@@ -775,29 +663,19 @@ void west(ref int x,ref int y,ref int z)
 		y--;
 	}
 	else
-	{
 		writeln("Something tells you that you can't leave the area...");
-	}
 }
 
 void command(string input,ref int x,ref int y,ref int z,ref int h,ref int health)
 {
 	if(input=="n"||input=="N")
-	{
 		north(x,y,z);
-	}
 	else if(input=="s"||input=="S")
-	{
 		south(x,y,z);
-	}
 	else if(input=="e"||input=="E")
-	{
 		east(x,y,z);
-	}
 	else if(input=="w"||input=="W")
-	{
 		west(x,y,z);
-	}
 	else if(input=="h"||input=="H")
 	{
 		writeln("Commands:");
@@ -809,9 +687,7 @@ void command(string input,ref int x,ref int y,ref int z,ref int h,ref int health
 		writeln("U-up");
 	}
 	else if(input=="d"||input=="D")
-	{
 		down(x,y,z,h);
-	}
 	else if(input=="116728")
 	{
 		write("X: ");
@@ -824,9 +700,7 @@ void command(string input,ref int x,ref int y,ref int z,ref int h,ref int health
 		health=to!int(getline());
 	}
 	else
-	{
 		writeln("That is not a valid command, type H for help.");
-	}
 }
 
 int tile(int z,ref int num,ref int health,ref int def,ref int m)
@@ -891,7 +765,7 @@ int tile(int z,ref int num,ref int health,ref int def,ref int m)
 	}
 	if(num==11)
 	{
-		writeln("A feeling of hopelessness overwhelms you...");
+		writeln("A feeling of hopelessness overwhelms you..."); //To add the rest of this
 		boss(health,def,m);
 	}
 	assert(0);
