@@ -1,4 +1,3 @@
-//Translation using D's Confusing Syntax
 import std.stdio,std.random,std.conv;
 string vowel(string arg)
 {
