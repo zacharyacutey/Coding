@@ -4,4 +4,3 @@ def f
   Thread.new { f }
 end
 f
-A
