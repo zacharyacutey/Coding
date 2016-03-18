@@ -3,4 +3,5 @@ def f
   Thread.new { f }
   Thread.new { f }
 end
-Tf
+f
+A
