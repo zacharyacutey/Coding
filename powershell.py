@@ -1,4 +1,4 @@
-_title="Python 3.5 (32-bit)"
+_title="Python 3.5 (32-bit)" #Insert the original Python Title here
 def title(arg):
 	import os,subprocess,sys
 	global _title
