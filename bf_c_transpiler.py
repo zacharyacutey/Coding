@@ -16,7 +16,7 @@ def instruction(arg):
   if arg==",":
     return "*p=getchar();"
   return ""
-INIT="#include <stdio.h>\nint main(){"
+INIT="#include <stdio.h>\nint main(){char *p;"
 END="}"
 def transpiler(arg):
   return INIT+"".join([instruction(i) for i in arg])+END
