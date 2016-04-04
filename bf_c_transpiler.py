@@ -24,6 +24,6 @@ def transpile(name):
   f=open(name)
   g=open(name+".c","w")
   g.write(transpiler(f.read()))
-if __name__!="__main__":
+if __name__=="__main__":
   import sys
   transpile(sys.argv[1])
