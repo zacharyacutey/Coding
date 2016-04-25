@@ -12,11 +12,11 @@ class AppendDict:
   def __setitem__(self,key,value):
     if key in self.val.keys():
       if value in self.val[key]:
-        #DO NOTHING
+        0 #do nothing
       else:
-        self.val[key]+=tuple(key)
+        self.val[key]+=tuple([value])
     else:
-      self.val[key]=tuple(value)
+      self.val[key]=tuple([value])
   def __delitem__(self,key):
     del self.val[key]
   def __iter__(self):
