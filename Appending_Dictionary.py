@@ -1,4 +1,3 @@
-#Used for POS list-makers of corpora
 class AppendDict:
   def __init__(self):
     self.val={}
@@ -23,12 +22,7 @@ class AppendDict:
     return self.val.__iter__()
   def __contains__(self,item):
     return item in self.val
-def ScanCorpus(arg): #Format is [(word,part),...]
-	t=AppendDict()
-	for i in arg:
-		if i[1]!="NAME":
-			j=i[0].lower()
-		else:
-			j=i[0][0].upper()+i[0][1:].lower()
-		t[j]=i[1]
-	return t
+  def keys():
+    return self.val.keys()
+  def values():
+    return self.val.values()
