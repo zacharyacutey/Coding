@@ -23,3 +23,7 @@ class AppendDict:
     return self.val.__iter__()
   def __contains__(self,item):
     return item in self.val
+def ScanCorpus(arg): #Format is [(word,part),...]
+	t=AppendDict()
+	for i in arg:
+		t[i[0]]=i[1]
