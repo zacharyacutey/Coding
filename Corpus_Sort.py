@@ -26,4 +26,9 @@ class AppendDict:
 def ScanCorpus(arg): #Format is [(word,part),...]
 	t=AppendDict()
 	for i in arg:
-		t[i[0]]=i[1]
+		if i[1]!="NAME":
+			j=i[0].lower()
+		else:
+			j=i[0][0].upper()+i[0][1:].lower()
+		t[j]=i[1]
+	return t
